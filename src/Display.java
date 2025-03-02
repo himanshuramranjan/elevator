@@ -1,6 +1,6 @@
 public class Display {
-    int floorNumber;
-    Direction direction;
+    private int floorNumber;
+    private Direction direction;
 
     public int getFloorNumber() {
         return floorNumber;

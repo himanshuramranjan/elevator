@@ -1,6 +1,6 @@
 public class ExternalButton extends Button {
 
-    ButtonDispatcher buttonDispatcher;
+    private final ButtonDispatcher buttonDispatcher;
 
     public ExternalButton() {
         this.buttonDispatcher = ExternalButtonDispatcher.getInstance();

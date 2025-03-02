@@ -1,10 +1,10 @@
 public class ElevatorCar {
-    int id;
-    int curFloorNum;
-    Display display;
-    Button internalButton;
-    ElevatorDoor elevatorDoor;
-    Direction direction;
+    private final int id;
+    private int curFloorNum;
+    private final Display display;
+    private final Button internalButton;
+    private final ElevatorDoor elevatorDoor;
+    private Direction direction;
 
     public ElevatorCar(int id) {
         this.id = id;
@@ -28,5 +28,37 @@ public class ElevatorCar {
     private void setDisplay(Direction direction) {
         this.display.setDirection(direction);
         this.display.setFloorNumber(curFloorNum);
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    public void setCurFloorNum(int curFloorNum) {
+        this.curFloorNum = curFloorNum;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getCurFloorNum() {
+        return curFloorNum;
+    }
+
+    public Display getDisplay() {
+        return display;
+    }
+
+    public Button getInternalButton() {
+        return internalButton;
+    }
+
+    public ElevatorDoor getElevatorDoor() {
+        return elevatorDoor;
+    }
+
+    public Direction getDirection() {
+        return direction;
     }
 }

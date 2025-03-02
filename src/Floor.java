@@ -1,20 +1,20 @@
 public class Floor {
-    int floorNumber;
-    Display display;
-    ExternalButton floorButton;
+    private final int floorId;
+    private final Display display;
+    private final ExternalButton floorButton;
 
-    public Floor(int floorNumber) {
-        this.floorNumber = floorNumber;
+    public Floor(int floorId) {
+        this.floorId = floorId;
         this.display = new Display();
         this.floorButton = new ExternalButton();
     }
 
     public void pressButton(Direction direction) {
-        floorButton.pressButton(this.floorNumber, direction);
+        floorButton.pressButton(this.floorId, direction);
     }
 
-    public int getFloorNumber() {
-        return floorNumber;
+    public int getFloorId() {
+        return floorId;
     }
 
     public Display getDisplay() {
@@ -23,6 +23,6 @@ public class Floor {
 
     public void setDisplay(Direction direction, int floorNumber) {
         this.display.setDirection(direction);
-        this.floorNumber = floorNumber;
+        this.display.setFloorNumber(floorNumber);
     }
 }
