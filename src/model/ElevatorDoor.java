@@ -1,3 +1,5 @@
+package model;
+
 public class ElevatorDoor {
     public void open(int id) {
         System.out.println("Doors opening for elevator : " + id);

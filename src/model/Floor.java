@@ -1,3 +1,5 @@
+package model;
+
 public class Floor {
     private final int floorId;
     private final Display display;

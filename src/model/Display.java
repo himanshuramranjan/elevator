@@ -1,3 +1,5 @@
+package model;
+
 public class Display {
     private int floorNumber;
     private Direction direction;

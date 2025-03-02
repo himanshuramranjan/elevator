@@ -1,3 +1,5 @@
+package model;
+
 public class ElevatorController {
 
     private final int id;

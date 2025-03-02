@@ -1,3 +1,5 @@
+package model;
+
 public class ElevatorCar {
     private final int id;
     private int curFloorNum;

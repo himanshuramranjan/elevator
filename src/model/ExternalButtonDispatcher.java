@@ -1,3 +1,5 @@
+package model;
+
 public class ExternalButtonDispatcher extends ButtonDispatcher {
 
     public static volatile ExternalButtonDispatcher externalButtonDispatcher;
