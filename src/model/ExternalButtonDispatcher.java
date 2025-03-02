@@ -1,7 +1,5 @@
 package model;
 
-import strategy.elevatorselection.ElevatorSelectionStrategy;
-
 public class ExternalButtonDispatcher extends ButtonDispatcher {
 
     public static volatile ExternalButtonDispatcher externalButtonDispatcher;
