@@ -65,4 +65,8 @@ public class ElevatorSystem {
     public List<ElevatorController> getElevatorControllers() {
         return elevatorControllers;
     }
+
+    public List<Floor> getFloors() {
+        return floors;
+    }
 }
