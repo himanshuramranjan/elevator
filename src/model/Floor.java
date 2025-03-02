@@ -23,6 +23,7 @@ public class Floor {
         return display;
     }
 
+    //called everytime selected elevator moves each floor
     public void setDisplay(Direction direction, int floorNumber) {
         this.display.setDirection(direction);
         this.display.setFloorNumber(floorNumber);
