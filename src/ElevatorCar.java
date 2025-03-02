@@ -16,7 +16,10 @@ public class ElevatorCar {
     }
 
     public void move(int floor, Direction direction) {
-        System.out.println("Moving to : " + floor);
+        System.out.println("Elevator " + id + "moving " + direction);
+        System.out.println("Elevator " + id + "stops at floor " + floor);
+        this.elevatorDoor.open(id);
+        this.elevatorDoor.close(id);
         setDisplay(direction);
     }
 
