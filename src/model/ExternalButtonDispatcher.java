@@ -1,25 +1,11 @@
 package model;
 
-public class ExternalButtonDispatcher extends ButtonDispatcher {
+public class ExternalButtonDispatcher {
 
-    public static volatile ExternalButtonDispatcher externalButtonDispatcher;
-    private final ElevatorSystem elevatorSystem;
-    private ExternalButtonDispatcher() {
-        this.elevatorSystem = ElevatorSystem.getInstance();
-    }
+    private ExternalButtonDispatcher() {}
+    private static final ElevatorSystem elevatorSystem = ElevatorSystem.getInstance();
 
-    public static ExternalButtonDispatcher getInstance() {
-        if(externalButtonDispatcher == null) {
-            synchronized (ExternalButtonDispatcher.class) {
-                if(externalButtonDispatcher == null) {
-                    externalButtonDispatcher = new ExternalButtonDispatcher();
-                }
-            }
-        }
-        return externalButtonDispatcher;
-    }
-    @Override
-    public void submitRequest(int floor, Direction direction) {
+    public static void submitRequest(int floor, Direction direction) {
         int elevatorId = elevatorSystem.getElevatorSelectionStrategy().selectElevator(floor, direction);
 
         for(ElevatorController elevatorController : elevatorSystem.getElevatorControllers()) {
