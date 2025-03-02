@@ -13,9 +13,8 @@ public class InternalButton extends Button{
     @Override
     public void pressButton(int floor, Direction direction, int elevatorId) {
 
-        System.out.println("Pressed for floor : " + floor + " from elevator : " + elevatorId);
         floors.add(floor);
         InternalButtonDispatcher.submitRequest(floor, direction, elevatorId);
-
+        System.out.println("Pressed for floor : " + floor + " from elevator : " + elevatorId);
     }
 }
