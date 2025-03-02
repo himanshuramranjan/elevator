@@ -53,4 +53,16 @@ public class ElevatorSystem {
     public void setElevatorControllerStrategy(ElevatorControllerStrategy elevatorControllerStrategy) {
         this.elevatorControllerStrategy = elevatorControllerStrategy;
     }
+
+    public ElevatorSelectionStrategy getElevatorSelectionStrategy() {
+        return elevatorSelectionStrategy;
+    }
+
+    public ElevatorControllerStrategy getElevatorControllerStrategy() {
+        return elevatorControllerStrategy;
+    }
+
+    public List<ElevatorController> getElevatorControllers() {
+        return elevatorControllers;
+    }
 }
