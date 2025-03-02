@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InternalButton extends Button{
-    private final ButtonDispatcher internalButtonDispatcher;
     private List<Integer> floors;
 
     public InternalButton() {
-        this.internalButtonDispatcher = new InternalButtonDispatcher();
         floors = new ArrayList<>();
     }
 
@@ -17,7 +15,7 @@ public class InternalButton extends Button{
 
         System.out.println("Pressed for floor : " + floor + " from elevator : " + elevatorId);
         floors.add(floor);
-        internalButtonDispatcher.submitRequest(floor, direction, elevatorId);
+        InternalButtonDispatcher.submitRequest(floor, direction, elevatorId);
 
     }
 }
