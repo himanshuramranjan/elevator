@@ -5,7 +5,7 @@ import model.Floor;
 import strategy.elevatorcontrol.FirstComeFirstServeStrategy;
 import strategy.elevatorselection.OddEvenStrategy;
 
-public class Main {
+public class ElevatorSystemApp {
     public static void main(String[] args) {
 
         //ElevatorSystem is singleton class
