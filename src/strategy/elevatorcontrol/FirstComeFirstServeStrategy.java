@@ -1,6 +1,7 @@
 package strategy.elevatorcontrol;
 
-import model.ElevatorController;
+import model.ElevatorRequest;
+import service.ElevatorController;
 
 public class FirstComeFirstServeStrategy extends ElevatorControllerStrategy {
 
@@ -10,5 +11,8 @@ public class FirstComeFirstServeStrategy extends ElevatorControllerStrategy {
         //move elevator according to each request
         //Disadvantage: frequent change of direction of elevator, hence inefficient and
         // long waiting time for users
+
+        ElevatorRequest request = this.pendingRequests.poll();
+        elevatorController.getElevatorCar().move(request.getFloor(), request.getDirection());
     }
 }

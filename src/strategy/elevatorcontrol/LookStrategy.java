@@ -1,6 +1,6 @@
 package strategy.elevatorcontrol;
 
-import model.ElevatorController;
+import service.ElevatorController;
 
 public class LookStrategy extends ElevatorControllerStrategy {
     public void moveElevatorCar(ElevatorController elevatorController)
