@@ -9,7 +9,7 @@ public class ElevatorCar {
     private final int id;
     private int curFloorNum;
     private final Display display;
-    private final Button internalButton;
+    private final Button internalButton; // we can have List of Buttons and then we can iterate and press that btn
     private final ElevatorDoor elevatorDoor;
     private Direction direction;
 
