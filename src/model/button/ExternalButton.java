@@ -1,4 +1,8 @@
-package model;
+package model.button;
+
+import model.buttondispatcher.ButtonDispatcher;
+import enums.Direction;
+import model.ElevatorRequest;
 
 public class ExternalButton implements Button {
 
@@ -9,8 +13,7 @@ public class ExternalButton implements Button {
     }
 
     public void pressButton(int floor, Direction direction) {
-
-        dispatcher.submitRequest(new ElevatorRequest(floor, direction, null));
         System.out.println("Pressed " + direction + " from floor " + floor);
+        dispatcher.submitRequest(new ElevatorRequest(floor, direction, null));
     }
 }
