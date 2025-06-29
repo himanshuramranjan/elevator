@@ -1,5 +1,6 @@
-package model;
+package service;
 
+import model.Floor;
 import strategy.elevatorcontrol.ElevatorControllerStrategy;
 import strategy.elevatorselection.ElevatorSelectionStrategy;
 

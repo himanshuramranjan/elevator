@@ -1,6 +1,7 @@
-package model;
+package service;
 
-import strategy.PendingRequest;
+import model.ElevatorCar;
+import model.ElevatorRequest;
 
 public class ElevatorController {
 
@@ -12,17 +13,20 @@ public class ElevatorController {
         this.elevatorCar = new ElevatorCar(id);
     }
 
-    public void acceptRequest(int floor, Direction direction) {
-        ElevatorSystem.getInstance().getElevatorControllerStrategy().addRequest(new PendingRequest(floor, direction));
+    public void acceptRequest(ElevatorRequest elevatorRequest) {
+        ElevatorSystem.getInstance().getElevatorControllerStrategy().addRequest(elevatorRequest);
         controlCar();
     }
 
     private void controlCar() {
         ElevatorSystem.getInstance().getElevatorControllerStrategy().moveElevatorCar(this);
-        System.out.println("Elevator moving...");
     }
 
     public ElevatorCar getElevatorCar() {
         return elevatorCar;
+    }
+
+    public int getId() {
+        return id;
     }
 }
