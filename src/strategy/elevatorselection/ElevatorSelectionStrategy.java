@@ -1,16 +1,16 @@
 package strategy.elevatorselection;
 
-import model.Direction;
-import model.ElevatorController;
+import model.ElevatorRequest;
+import service.ElevatorController;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElevatorSelectionStrategy {
+public abstract class ElevatorSelectionStrategy {
     protected List<ElevatorController> elevatorControllers;
 
-    public ElevatorSelectionStrategy() {
+    protected ElevatorSelectionStrategy() {
         this.elevatorControllers = new ArrayList<>();
     }
-    public int selectElevator(int floor, Direction direction) { return -1; }
+    public abstract int selectElevator(ElevatorRequest elevatorRequest);
 }

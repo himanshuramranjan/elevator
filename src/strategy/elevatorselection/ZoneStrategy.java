@@ -1,15 +1,16 @@
 package strategy.elevatorselection;
 
-import model.Direction;
-import model.ElevatorController;
-import model.ElevatorSystem;
+import enums.Direction;
+import model.ElevatorRequest;
+import service.ElevatorController;
+import service.ElevatorSystem;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ZoneStrategy extends ElevatorSelectionStrategy{
 
     @Override
-    public int selectElevator(int floor, Direction direction) {
+    public int selectElevator(ElevatorRequest elevatorRequest) {
         for(ElevatorController eController: ElevatorSystem.getInstance().getElevatorControllers())
         {
             //assign elevators according to zones in building
