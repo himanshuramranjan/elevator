@@ -1,6 +1,6 @@
-import model.Direction;
-import model.ElevatorController;
-import model.ElevatorSystem;
+import enums.Direction;
+import service.ElevatorController;
+import service.ElevatorSystem;
 import model.Floor;
 import strategy.elevatorcontrol.FirstComeFirstServeStrategy;
 import strategy.elevatorselection.OddEvenStrategy;
@@ -32,15 +32,13 @@ public class ElevatorSystemApp {
         //Working
 
         //Request 1
-        System.out.println("Person at floor 1 presses UP Button");
         for(Floor floor: elevatorSystem.getFloors())
         {
-            if(floor.getFloorId()==1)
+            if(floor.getFloorId()==3)
                 floor.pressButton(Direction.UP);
         }
 
         //Request 2
-        System.out.println("Person at floor 5 presses UP Button");
         for(Floor floor: elevatorSystem.getFloors())
         {
             if(floor.getFloorId()==5)
@@ -48,16 +46,14 @@ public class ElevatorSystemApp {
         }
 
         //Request 3
-        System.out.println("Person presses 10 in elevator 2");
         for(ElevatorController elevatorController: elevatorSystem.getElevatorControllers())
         {
-            if(elevatorController.getElevatorCar().getId()==2)
+            if(elevatorController.getElevatorCar().getId()==3)
                 elevatorController.getElevatorCar().pressButton(10);
 
         }
 
-        //Request 4
-        System.out.println("Person presses 6 in elevator 2");
+//        Request 4
         for(ElevatorController elevatorController: elevatorSystem.getElevatorControllers())
         {
             if(elevatorController.getElevatorCar().getId()==2)
@@ -65,7 +61,6 @@ public class ElevatorSystemApp {
         }
 
         //Request 5
-        System.out.println("Person at floor 7 presses DOWN Button");
         for(Floor floor: elevatorSystem.getFloors())
         {
             if(floor.getFloorId()==7)
@@ -73,7 +68,6 @@ public class ElevatorSystemApp {
         }
 
         //Request 6
-        System.out.println("Person presses 1 in elevator 3");
         for(ElevatorController elevatorController: elevatorSystem.getElevatorControllers())
         {
             if(elevatorController.getElevatorCar().getId()==3)
