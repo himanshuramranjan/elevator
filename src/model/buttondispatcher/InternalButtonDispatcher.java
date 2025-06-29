@@ -5,7 +5,6 @@ import model.ElevatorRequest;
 import service.ElevatorSystem;
 
 public class InternalButtonDispatcher implements ButtonDispatcher {
-    private static final ElevatorSystem elevatorSystem = ElevatorSystem.getInstance();
 
     @Override
     public void submitRequest(ElevatorRequest elevatorRequest) {

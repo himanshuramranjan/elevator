@@ -6,8 +6,6 @@ import service.ElevatorSystem;
 
 public class ExternalButtonDispatcher implements ButtonDispatcher {
 
-    private static final ElevatorSystem elevatorSystem = ElevatorSystem.getInstance();
-
     @Override
     public void submitRequest(ElevatorRequest elevatorRequest) {
         int elevatorId = elevatorSystem.getElevatorSelectionStrategy().selectElevator(elevatorRequest);
