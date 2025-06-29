@@ -1,0 +1,33 @@
+> Make the Dispatcher classes as Utility having a static method of submitRequest
+
+Static utility dispatchers limit testability, flexibility, and violate SOLID principles like Dependency Inversion.
+Instead, use a ButtonDispatcher interface with instance-based implementations to enable strategy patterns, support dependency injection, and improve unit testing.
+This makes your design cleaner, extensible, and production-ready.
+
+Think of dispatching like payment gateways in e-commerce. You wouldn’t hardcode:
+
+PayPal.processPayment(); // static call
+Instead, you’d use:
+
+PaymentProcessor processor = new PayPalProcessor();
+processor.process(payment);
+
+Why? So you can switch to Stripe or RazorPay later with minimal code changes. Same with ButtonDispatcher.
+
+> Cant we have the responsibility of adding the request to the controller directly on the Button class, and
+remove the dependency of ButtonDispatcher
+
+No, having a RequestDispatcher abstraction (like InternalDispatcher and ExternalDispatcher) is a better design
+than letting the Button directly talk to a specific ElevatorController.
+
+| Design Option                                |  Pros                                                                                                                               | Cons                                                                                                                                                                |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Button directly calls ElevatorController** |  Simpler, less indirection                                                                                                          | ❌ Violates SRP — Button now knows *how* the request is handled
+|                                              |                                                                                                                                     | ❌ Tight coupling — hardcoded to specific controller
+|                                              |                                                                                                                                     | ❌ Harder to change dispatch strategy later
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------
+| **Button delegates to RequestDispatcher**    |  ✅ Follows SRP — Button just triggers logic                                                                                        |    Slightly more classes and indirection (but manageable)
+|                                              |  ✅ Easy to change how requests are routed (via strategy)                                                                           |
+|                                              |  ✅ Good for mocking/testing                                                                                                        |
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -9,8 +9,8 @@ import java.util.List;
 public class ElevatorSystem {
 
     public static volatile ElevatorSystem elevatorSystem;
-    private List<ElevatorController> elevatorControllers;
-    private List<Floor> floors;
+    private final List<ElevatorController> elevatorControllers;
+    private final List<Floor> floors;
     private ElevatorSelectionStrategy elevatorSelectionStrategy;
     private ElevatorControllerStrategy elevatorControllerStrategy;
 
