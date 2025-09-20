@@ -1,0 +1,46 @@
+                               ELEVATOR REQUEST FLOW
+                               ====================
+
+1. REQUEST CREATION
+------------------
+                                User Interaction
+                                      ↓
+                 ┌──────────────┬─────┴─────┬
+                 ↓              ↓           ↓
+          External Button    Floor Button   Internal Button    
+          (UP/DOWN)         on Floor N    Inside Elevator     
+                 │              │           │
+                 └──────────────┼───────────┘
+                                ↓
+                         Button Pressed
+                                ↓
+                     Create ElevatorRequest
+                 [floor, direction, elevatorId]
+
+2. REQUEST PROCESSING
+-------------------
+                          ElevatorRequest
+                               ↓
+                     ElevatorSystem (Main)
+                               ↓
+                 ┌─────────────┴─────────────┐
+                 ↓                           ↓
+         Selection Strategy           Control Strategy
+         (Which Elevator?)           (Movement Logic)
+                 │                           │
+                 └─────────────┬─────────────┘
+                              ↓
+                     ElevatorController
+                              ↓
+                        ElevatorCar
+                              ↓
+                      Execute Request
+
+EXAMPLE FLOWS
+------------
+1. External Request:
+   User → UP Button (Floor 3) → ElevatorRequest → Select Elevator → Move → Serve
+
+2. Internal Request:
+   User → Floor 10 Button → ElevatorRequest → Current Elevator → Move → Serve
+s
