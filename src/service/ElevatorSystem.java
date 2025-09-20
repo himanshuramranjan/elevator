@@ -9,7 +9,6 @@ import java.util.List;
 
 public class ElevatorSystem {
 
-    public static volatile ElevatorSystem elevatorSystem;
     private final List<ElevatorController> elevatorControllers;
     private final List<Floor> floors;
     private ElevatorSelectionStrategy elevatorSelectionStrategy;
@@ -20,15 +19,12 @@ public class ElevatorSystem {
         this.floors = new ArrayList<>();
     }
 
+    private static class SingletonHelper {
+        private static final ElevatorSystem INSTANCE = new ElevatorSystem();
+    }
+
     public static ElevatorSystem getInstance() {
-        if(elevatorSystem == null) {
-            synchronized (ElevatorSystem.class) {
-                if(elevatorSystem == null) {
-                    elevatorSystem = new ElevatorSystem();
-                }
-            }
-        }
-        return elevatorSystem;
+        return SingletonHelper.INSTANCE;
     }
 
     public void addElevators(ElevatorController elevatorController) {
